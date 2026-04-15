@@ -49,13 +49,56 @@
             padding: 20px;
             color: gray;
         }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+            border-bottom: 2px solid white;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .card-custom {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
     </style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: linear-gradient(135deg, #6c63ff, #4facfe);">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: linear-gradient(135deg, #6c63ff, #4facfe);"data-aos="fade-down">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">Portfolio Rindy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -64,22 +107,18 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Keahlian</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pengalaman">pengalaman</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">kontak</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" data-aos="fade-down">
+<section id="home" class="hero" data-aos="fade-down">
     <img src="fotoRindy.png" alt="Foto Rindy">
     <h1 class="mt-3">Rindy Marsya Mataheruila</h1>
     <p>Mahasiswa Program Studi Ilmu Komputer</p>
@@ -88,19 +127,18 @@
 <div class="container my-5">
 
     <!-- ABOUT -->
-    <div class="card card-custom p-4 mb-4" data-aos="fade-up">
+    <div id="about" class="card card-custom p-4 mb-4" data-aos="zoom-in" >
         <h3 class="section-title">Tentang Saya</h3>
         <p>
             Saya adalah mahasiswa semester 4 Program Studi Ilmu Komputer di Universitas Pattimura yang memiliki minat di bidang teknologi, khususnya pengembangan aplikasi dan sistem.
             <br><br>
-            Saya aktif dalam organisasi seperti Paguyuban Karya Salemba Empat dan Forum Anak. Pengalaman ini membantu saya meningkatkan kemampuan komunikasi, kerja tim, dan adaptasi.
+            Saya aktif dalam organisasi seperti Paguyuban Karya Salemba Empat dan Forum Anak.
             <br><br>
             Saya memiliki semangat belajar tinggi dan terus mengembangkan skill untuk berkontribusi di dunia profesional.
         </p>
     </div>
 
     <div class="row">
-        <!-- DATA -->
         <div class="col-md-6" data-aos="zoom-in">
             <div class="card card-custom p-4 mb-4">
                 <h3 class="section-title">Data Pribadi</h3>
@@ -110,7 +148,6 @@
             </div>
         </div>
 
-        <!-- PENDIDIKAN -->
         <div class="col-md-6" data-aos="zoom-in">
             <div class="card card-custom p-4 mb-4">
                 <h3 class="section-title">Pendidikan</h3>
@@ -123,42 +160,8 @@
         </div>
     </div>
 
-    <!-- PENGALAMAN -->
-    <div id="pengalaman" class="card card-custom card-hover p-4 mb-4" data-aos="zoom-in">
-        <h3 class="section-title">Pengalaman</h3>
-
-        <div class="d-flex align-items-start">
-            <i class="fa-solid fa-award fa-2x me-3 text-primary"></i>
-
-            <div>
-                <h5 class="mb-1">Beswan Karya Salemba Empat</h5>
-                <p class="mb-1">Paguyuban KSE Universitas Pattimura</p>
-                <small class="text-muted">
-                    Aktif dalam kegiatan sosial, pengembangan diri, serta kolaborasi dalam Paguyuban KSE UNPATTI.
-                </small>
-
-                <ul class="mt-2">
-                    <li>Penerima Beasiswa KSE</li>
-                    <li>Aktif dalam kegiatan organisasi</li>
-                    <li>Mengembangkan soft skill dan teamwork</li>
-                </ul>
-                
-            <div>
-                <h5 class="mb-1">Pernah Menulis Jurnal</h5>
-                <p class="mb-1">Paguyuban KSE Universitas Pattimura</p>
-                <small class="text-muted">
-                    Jurnal ini merupakan salah satu bentuk kontribusi saya dalam dunia akademik.
-                </small>
-                <a href="https://ojs3.unpatti.ac.id/index.php/algorithm/article/view/23061/12397" 
-                   target="_blank" 
-                   class="btn btn-primary">
-                   Lihat Jurnal
-                </a>                
-            </div>
-        </div>
-    </div>
     <!-- SKILLS -->
-    <div class="card card-custom p-4 mb-4" data-aos="zoom-in">
+    <div id="skills" class="card card-custom p-4 mb-4" data-aos="zoom-in">
         <h3 class="section-title">Keahlian</h3>
         <div class="row">
             <div class="col-md-6">
@@ -173,41 +176,136 @@
             </div>
         </div>
     </div>
+<!-- PENGALAMAN -->
+<div id="pengalaman"class="card card-custom p-4 mb-4" data-aos="zoom-in">
+    <h3 class="section-title">Pengalaman</h3>
 
-    <!-- CONTACT -->
-    <div class="card card-custom p-4 mb-4" data-aos="zoom-in">
-        <h3 class="section-title">Kontak</h3>
-        <p><i class="fa-solid fa-envelope me-2"></i>
-            <a href="mailto:mataheruilarindymarsya@gmail.com">mataheruilarindymarsya@gmail.com</a>
-        </p>
-        <p><i class="fa-brands fa-instagram me-2"></i>
-            <a href="https://instagram.com/marsya_mataheruila20" target="_blank">@marsya_mataheruila20</a>
-        </p>
-        <p><i class="fa-solid fa-phone me-2"></i>
-            <a href="https://wa.me/6282197970906" target="_blank">082197970906</a>
-        </p>
-        <p><i class="fab fa-github me-2"></i>
-            <a href="https://github.com/zalihaely03" target="_blank">Github</a>
-        </p>
+    <!-- BESWAN -->
+    <div class="d-flex mb-4">
+        <i class="fa-solid fa-award fa-2x me-3 text-primary"></i>
+        <div>
+            <h5 class="mb-1">Beswan Karya Salemba Empat</h5>
+            <small class="text-muted">Paguyuban KSE Universitas Pattimura</small>
+            <p class="mt-2 mb-2">
+                Aktif dalam kegiatan sosial, pengembangan diri, serta kolaborasi dalam Paguyuban KSE UNPATTI.
+            </p>
+            <ul class="mb-0">
+                <li>Aktif dalam kegiatan organisasi</li>
+                <li>Mengembangkan soft skill dan teamwork</li>
+            </ul>
+        </div>
     </div>
 
+    <hr>
+
+    <!-- JURNAL -->
+    <div class="d-flex align-items-start">
+        <i class="fa-solid fa-book fa-2x me-3 text-success"></i>
+        <div>
+            <h5 class="mb-1">Publikasi Jurnal</h5>
+            <p class="mb-2">
+                Saya telah menulis dan mempublikasikan jurnal ilmiah di bidang teknologi dan komputer sebagai bentuk kontribusi dalam dunia akademik.
+            </p>
+            <a href="https://ojs3.unpatti.ac.id/index.php/algorithm/article/view/23061/12397" 
+               target="_blank" 
+               class="btn btn-primary btn-sm">
+               Lihat Jurnal
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- KONTAK -->
+<div id="kontak" class="card card-custom p-4 mb-4" data-aos="zoom-in">
+    <h3 class="section-title">Kontak</h3>
+
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-envelope me-3"></i>
+        <a href="mailto:mataheruilarindymarsya@gmail.com">
+            mataheruilarindymarsya@gmail.com
+        </a>
+    </div>
+
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-brands fa-instagram me-3"></i>
+        <a href="https://instagram.com/marsya_mataheruila20" target="_blank">
+            @marsya_mataheruila20
+        </a>
+    </div>
+
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-phone me-3"></i>
+        <a href="https://wa.me/6282197970906" target="_blank">
+            082197970906
+        </a>
+    </div>
+
+    <div class="d-flex align-items-center">
+        <i class="fab fa-github me-3"></i>
+        <a href="https://github.com/rindymarsya20" target="_blank">
+            Github
+        </a>
+    </div>
 </div>
 
 <footer>
     © 2026 – Rindy Marsya Mataheruila
 </footer>
 
-<!-- Bootstrap JS -->
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
+AOS.init({
+    duration: 1200,
+    once: false,
+    offset: 120,
+    easing: 'ease-in-out',
+    mirror: true
+});
+</script>
+
+<script>
+const sections = document.querySelectorAll("section, div[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+<!-- AUTO CLOSE NAVBAR -->
+<script>
+const navLink = document.querySelectorAll('.nav-link');
+const navbarCollapse = document.querySelector('.navbar-collapse');
+
+navLink.forEach(link => {
+link.addEventListener('click', () => {
+if (navbarCollapse.classList.contains('show')) {
+new bootstrap.Collapse(navbarCollapse).hide();
+}
+});
+});
 </script>
 
 </body>
 </html>
+
+
+
+
